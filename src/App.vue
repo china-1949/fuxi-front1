@@ -1,15 +1,6 @@
 <template>
   <div id="app">
-      App
-      <!-- 使用 router-link 组件来导航. -->
-   <!-- 通过传入 `to` 属性指定链接. -->
-   <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-   <router-link to="/foo">Go to Foo</router-link>
-   <router-link to="/bar">Go to Bar</router-link>
-   <!-- 2种页面跳转  router-link  和 路径方法-->
-  <button @click="gotoByUrl('/foo')">Go to Foo</button>
-  <button @click="gotoByUrl('/bar')">Go to Bar</button>
-      <!-- 路由匹配到的组件将渲染在这里 -->
+
       <router-view></router-view>
   </div>
 </template>
@@ -23,13 +14,33 @@ export default {
     }
   },
   methods:{
-    gotoByUrl(url){//页面跳转
-      this.$router.push(url);
-    }
+
   },
 }
 </script>
 
 <style lang="scss">
+  html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family :"PingFang SC","Helvetica Neue","Hiragino Sans GB","Segoe UI","Microsoft YaHei","微 软雅黑",sans-serif;
+  }
 
+  #app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  a {
+    text-decoration: none;
+  }
 </style>
