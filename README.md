@@ -38,8 +38,7 @@
 
 ### 第三方资料
 
-``` bash
-
+``` 
 
  vue-router: https://router.vuejs.org/zh/guide/#html
  element-ui: http://element-cn.eleme.io/#/zh-CN/component/installation 
@@ -47,5 +46,35 @@
  vue-axios: https://www.npmjs.com/package/vue-axios
  qs: https://www.npmjs.com/package/qs
  vuex: https://vuex.vuejs.org/zh/
+``` 
+### 表单验证
+``` 
+表单验证：
+rules:{
+        username: [
+          { required: true, message: '请输入用户名', trigger: 'blur' },
 
-``
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+
+        ],
+      },
+      
+ 表单提交验证：
+  methods: {
+       submitForm(formName) {
+         this.$refs[formName].validate((valid) => {
+           if (valid) {
+             alert('submit!');
+           } else {
+             console.log('error submit!!');
+             return false;
+           }
+         });
+       },
+       resetForm(formName) { //重置
+         this.$refs[formName].resetFields();
+       }
+     }
+``` 
