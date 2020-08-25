@@ -76,7 +76,7 @@ export default {
         } else {
          // console.log('error submit!!');
          // alert('error submit!!');
-          self.$message.error('error submit!!');
+          this.$message.error('error submit!!');
           return false;
         }
       });
