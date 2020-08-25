@@ -84,4 +84,57 @@ axios:异步请求
 vue-axios：axios的方法变量放入vue实例里面，通过this进行调用
 qs：传参过程中json格式转换
 
+```
+ ### 交互
+``` 
+
+指定Axios的一些配置
+
+Axios.defaults.baseURL = 'http://localhost:8080';
+Axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+Axios.defaults.withCredentials= true  //开启跨域请求
+
+
+get请求：
+axios.get('/user?ID=12345')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+  
+  post请求：
+  
+  axios.post('/user', {
+      firstName: 'Fred',
+      lastName: 'Flintstone'
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
+ 和Ajax差不多
+ axios({
+   method: 'post',
+   url: '/user/12345',
+   data: {
+     firstName: 'Fred',
+     lastName: 'Flintstone'
+   }
+ });   
+    
+ elementui 中message   消息提示
+ 
+ this.$message.error('错了哦，这是一条错误消息');
+  this.$message.sucess('成功了');
+ 
 ``` 
