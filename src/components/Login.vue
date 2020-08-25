@@ -69,7 +69,8 @@ export default {
               })
               .catch(function (error) {
                 // handle error
-                alert("error"+error);
+                //alert("error"+error);
+                self.$message.error(error);
               });
 
         } else {
