@@ -47,6 +47,7 @@ export default {
   //使用表单提交验证
   methods: {
     login(formName) {
+      var self =this;
       this.$refs[formName].validate((valid) => {
         if (valid) {
           alert('submit!');
@@ -57,9 +58,13 @@ export default {
               .then(function (response) {
                 var result=response.data;
                 if(result.code ==200){
-                  alert(result.message);
+                 // alert(result.message);
+                  self.$message.success(result.message);
+                  //登录成功页面跳转
+                  self.$router.push('/foo')
                 }else{
-                  alert(result.message);
+                //  alert(result.message);
+                  self.$message.error(result.message);
                 }
               })
               .catch(function (error) {
