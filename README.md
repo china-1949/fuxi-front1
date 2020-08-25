@@ -78,3 +78,10 @@ rules:{
        }
      }
 ``` 
+### axiois 和vue-axios ,qs
+``` 
+axios:异步请求
+vue-axios：axios的方法变量放入vue实例里面，通过this进行调用
+qs：传参过程中json格式转换
+
+``` 

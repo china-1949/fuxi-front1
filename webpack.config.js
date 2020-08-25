@@ -76,6 +76,7 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
+    port: '8081', //指定端口启动
     historyApiFallback: true,
     noInfo: true,
     overlay: true

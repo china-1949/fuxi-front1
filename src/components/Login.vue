@@ -8,7 +8,7 @@
             <el-input v-model="user.username" placeholder="输入用户名"></el-input>
           </el-form-item>
           <el-form-item label="密码 " prop="password">
-            <el-input v-model="user.password" placeholder="输入密码"></el-input>
+            <el-input type="password" v-model="user.password" placeholder="输入密码"></el-input>
           </el-form-item>
           <el-button class="submit-btn" type="primary"  @click="login('ruleForm')">登录</el-button>
         </el-form>
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+  //引入qs
+   import qs from 'qs';
 export default {
   name: 'login',
   data () {
@@ -48,6 +50,23 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           alert('submit!');
+            this.axios.post('/api/login',qs.stringify({
+              username: this.user.username,
+              password: this.user.password
+            }))
+              .then(function (response) {
+                var result=response.data;
+                if(result.code ==200){
+                  alert(result.message);
+                }else{
+                  alert(result.message);
+                }
+              })
+              .catch(function (error) {
+                // handle error
+                alert("error"+error);
+              });
+
         } else {
           console.log('error submit!!');
           alert('error submit!!');
