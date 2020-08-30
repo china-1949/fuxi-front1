@@ -17,6 +17,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 //import js
 import routes from './js/router/routes'
+//映入modules
+import modules from './js/store/store-modules'
 
 
 Vue.use(VueRouter)
@@ -31,24 +33,7 @@ Axios.defaults.withCredentials= true  //开启跨域请求
 
 //使用Vuex，需要new Store
 const store = new Vuex.Store({
-  state: {
-    username: 'a'
-  },
-  mutations: {
-    changeUsername (state,payload) {
-      state.username=payload.username
-    }
-  },
-  actions:{
-    changeMyUsername(context,payload){
-      context.commit('changeUsername',payload);
-    }
-  },
-  getters:{
-    getUsername(state){
-      return state.username
-    }
-  }
+  modules:modules
 })
 
 const router = new VueRouter({
