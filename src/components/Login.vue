@@ -62,6 +62,9 @@ export default {
                   self.$message.success(result.message);
                   //登录成功页面跳转
                   self.$router.push('/foo')
+                  //登录状态
+                  self.$store.dispatch('changeMyUsername',{username:self.user.username})
+
                 }else{
                 //  alert(result.message);
                   self.$message.error(result.message);
