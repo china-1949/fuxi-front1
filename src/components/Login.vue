@@ -20,8 +20,7 @@
 </template>
 
 <script>
-  //引入qs
-   import qs from 'qs';
+
 export default {
   name: 'login',
   data () {
@@ -50,32 +49,17 @@ export default {
       var self =this;
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!');
-            this.axios.post('/api/login',qs.stringify({
-              username: this.user.username,
-              password: this.user.password
-            }))
-              .then(function (response) {
-                var result=response.data;
-                if(result.code ==200){
-                 // alert(result.message);
-                  self.$message.success(result.message);
-                  //登录成功页面跳转
-                  self.$router.push('/foo')
-                  //登录状态
-                  self.$store.dispatch('changeMyUsername',{username:self.user.username})
 
-                }else{
-                //  alert(result.message);
-                  self.$message.error(result.message);
-                }
-              })
-              .catch(function (error) {
-                // handle error
-                //alert("error"+error);
-                self.$message.error(error);
-              });
-
+          //登录状态
+          self.$store.dispatch('login',{username:self.user.username,password:self.user.password})
+            .then((response)=>{ //成功的
+              self.$message.success(response.data.message);
+              //登录成功页面跳转
+              self.$router.push('/foo')
+            })
+            .catch((response)=>{ //错误的
+              self.$message.error(response.data.message);
+            })
         } else {
          // console.log('error submit!!');
          // alert('error submit!!');
