@@ -1,6 +1,5 @@
 <template>
-  <div id="portal-template">
-    <img class="portal-logo" src="../assets/images/logo.png" alt="秒杀logo">
+  <portal-template>
     <div id="register">
       <el-form label-position="top" label-width="80px" :model="user"
                :rules="rules" ref="ruleForm">
@@ -19,13 +18,15 @@
 
     </div>
 
-  </div>
+  </portal-template>
 </template>
 
 <script>
 
+  import PortalTemplate from "./PortalTemplate";
   export default {
     name: 'register',
+    components: {PortalTemplate},
     data () {
 
       return {
@@ -81,5 +82,4 @@
 </script>
 
 <style lang="scss">
-  @import "../assets/css/portal-template.css";
 </style>

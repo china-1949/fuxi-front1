@@ -1,6 +1,5 @@
 <template>
-  <div id="portal-template">
-    <img class="portal-logo" src="../assets/images/logo.png" alt="秒杀logo">
+  <portal-template>
       <div id="login">
         <el-form label-position="top" label-width="80px" :model="user"
                  :rules="rules" ref="ruleForm">
@@ -16,13 +15,18 @@
         <router-link to="/register"><el-button type="text"  class="el-icon-edit">去注册</el-button></router-link>
       </div>
 
-  </div>
+  </portal-template>
 </template>
 
 <script>
+  //引入组件
+  import PortalTemplate from './PortalTemplate'
 
 export default {
   name: 'login',
+  components:{
+    PortalTemplate
+  },
   data () {
     return {
       user:{
@@ -78,5 +82,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/css/portal-template.css";
 </style>
