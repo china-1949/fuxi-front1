@@ -13,7 +13,7 @@
           <el-button class="submit-btn" type="primary"  @click="login('ruleForm')">登录</el-button>
         </el-form>
 
-        <router-link to="/register">去注册</router-link>
+        <router-link to="/register"><el-button type="text"  class="el-icon-edit">去注册</el-button></router-link>
       </div>
 
   </div>

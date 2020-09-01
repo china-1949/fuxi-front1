@@ -11,11 +11,11 @@
         <el-input type="password" v-model="user.password" placeholder="输入密码"></el-input>
       </el-form-item>
         <el-form-item label="确认密码 " prop="repassword">
-          <el-input type="repassword" v-model="user.repassword" placeholder="请确认密码"></el-input>
+          <el-input type="password" v-model="user.repassword" placeholder="请确认密码"></el-input>
         </el-form-item>
-        <el-button class="submit-btn" type="primary"  @click="register('ruleForm')">登录</el-button>
+        <el-button class="submit-btn" type="primary"  @click="register('ruleForm')">注册</el-button>
       </el-form>
-
+      <router-link to="/login"><el-button type="text"  class="el-icon-edit">去登录</el-button></router-link>
 
     </div>
 
@@ -27,12 +27,15 @@
   export default {
     name: 'register',
     data () {
+
       return {
         user:{
           username: '',
           password : '',
           repassword:''
         },
+
+
         rules:{
           username: [
             { required: true, message: '请输入用户名', trigger: 'blur' },
@@ -44,14 +47,23 @@
           ],
           repassword: [
             { required: true, message: '请确认密码', trigger: 'blur' },
-
+            { validator: (rule, value, callback) => {
+                if (value === '') {
+                  callback(new Error('请再次输入密码'));
+                } else if (value !== this.user.password) {
+                  callback(new Error('两次输入密码不一致!'));
+                } else {
+                  callback();
+                }
+              }, trigger: 'blur' }
           ],
 
         },
 
-
       }
+
     },
+
     //使用表单提交验证
     methods: {
       register(formName) {
