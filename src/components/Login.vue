@@ -59,7 +59,7 @@ export default {
             .then((response)=>{ //成功的
               self.$message.success(response.data.message);
               //登录成功页面跳转
-              self.$router.push('/foo')
+              self.$router.push('/home/course/list')
             })
             .catch((response)=>{ //错误的
               self.$message.error(response.data.message);
